@@ -8,12 +8,17 @@ import numpy as np
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.models import load_model
 
+import requests 
+from urllib.parse import urljoin
+
+"""******************"""
+
 def get_image_dimensions(directory):
     dimensions = []
     for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith(('.png', '.jpg', '.jpeg')):
-                img_path = os.path.join(root, file)
+                img_path =  urljoin(root, file) # os.path.join(root, file)
                 with Image.open(img_path) as img:
                     dimensions.append(img.size)
     return dimensions
@@ -21,11 +26,14 @@ def get_image_dimensions(directory):
 def main():
     # Streamlit UI
     st.title('ASL Gesture Recognition App',)
+
+    
     
     st.header("Image Dataset EDA and IDA")
 
     # Get dataset path from user input
-    data_directory = st.text_input("Enter path to image dataset:")
+    #       data_directory = st.text_input("Enter path to image dataset:")
+    data_directory = "https://github.com/vipuljain-vinyl/CMSE-830/tree/main/Mid_Term/Asl_Detection/" #"""""********"""
 
     if not data_directory:
         st.warning("Please enter a valid path.")
@@ -36,9 +44,10 @@ def main():
     test_data_dir = os.path.join(data_directory, 'Test')
 
     # Check if the dataset path is valid
-    if not (os.path.exists(train_data_dir) and os.path.exists(test_data_dir)):
-        st.warning("Invalid dataset path. Please check the path and try again.")
-        return
+    """ ***************"""
+    # if not (os.path.exists(train_data_dir) and os.path.exists(test_data_dir)):  
+    #     st.warning("Invalid dataset path. Please check the path and try again.")
+    #     return
 
     train_dimensions = get_image_dimensions(train_data_dir)
     test_dimensions = get_image_dimensions(test_data_dir)
@@ -78,8 +87,46 @@ def main():
 
 
     # Plot class distribution
-    train_classes = [cls for cls in os.listdir(train_data_dir) if os.path.isdir(os.path.join(train_data_dir, cls))]
-    test_classes = [cls for cls in os.listdir(test_data_dir) if os.path.isdir(os.path.join(test_data_dir, cls))]
+
+    # train_classes = [cls for cls in os.listdir(train_data_dir) if os.path.isdir(os.path.join(train_data_dir, cls))]
+    # test_classes = [cls for cls in os.listdir(test_data_dir) if os.path.isdir(os.path.join(test_data_dir, cls))]
+    train_classes=[]
+    test_classes = []
+
+
+    response = requests.get(train_data_dir)
+    
+
+    
+    data = response.json()
+    
+    if 'payload' in data and 'tree' in data['payload']:
+        items_data = data['payload']['tree']['items']
+        
+        for item in items_data:
+            train_classes.append(item['name'])
+    else:
+        print("Tree information not found in the response.")
+    
+
+    
+
+
+    response = requests.get(test_data_dir)
+    
+
+    
+    data = response.json()
+    
+    if 'payload' in data and 'tree' in data['payload']:
+        items_data = data['payload']['tree']['items']
+        
+        for item in items_data:
+            test_classes.append(item['name'])
+    else:
+        print("Tree information not found in the response.")
+
+    
 
 
     # Plot class distribution with specific ranges
@@ -93,7 +140,7 @@ def main():
 
 
     # make sure the number of labels matches
-    labels = os.listdir(train_data_dir)
+    labels = train_classes #os.listdir(train_data_dir)
     N=[]
     for i in range(len(labels)):
         N+=[i]
@@ -103,10 +150,14 @@ def main():
 
     def mapper(value):
         return reverse_mapping[value]
+    
+    
+    
 
     # Load the trained model
     model_file = st.file_uploader("choose trained model")
     model = load_model('./model.h5')
+    #model =  load_model(model_file)   
 
     uploaded_file = st.file_uploader("Choose an image...")
 
