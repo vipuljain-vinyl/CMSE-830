@@ -31,9 +31,9 @@ def main():
     text = '''Speech impaired people use hand signs and gestures to communicate. Normal people face difficulty in understanding their language. Hence there is a need of a system which recognizes the different signs, gestures and conveys the information to the normal people. 
             The dataset can be used for learning how to develop,evaluate and use convolutional deep learning neural networks for classification of images.
             
-            This is the Example of Multiclass classification problem.
+    This is the Example of Multiclass classification problem.
             
-            This includes how to develop a robust test harness for estimating the performance of the model, exploring improvements for the model by changing the paramters of the model, saving and loading the model to make predicitions on new data.'''
+    This includes how to develop a robust test harness for estimating the performance of the model, exploring improvements for the model by changing the paramters of the model, saving and loading the model to make predicitions on new data.'''
     st.markdown(text)
 
     st.header("Data Description")
