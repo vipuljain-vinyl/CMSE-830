@@ -38,10 +38,10 @@ def main():
 
     st.header("Data Description")
     text2 = '''The data set is a collection of images of alphabets including Space and Nothing from the American Sign Language, separated in 28 folders which represent the various classes.
-            
-            The data set contains images which are 400x400 pixels. There are 28 classes.
-            
-            The 28 classes contain A-Z alphabets, Space and Nothing.'''
+    
+    The data set contains images which are 400x400 pixels. There are 28 classes.
+    
+    The 28 classes contain A-Z alphabets, Space and Nothing.'''
 
     st.markdown(text2)
 
