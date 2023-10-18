@@ -71,7 +71,7 @@ def main():
     #     st.warning("Invalid dataset path. Please check the path and try again.")
     #     return
 
-    """Temporary"""
+    
     image_path_train = "Mid_Term/Asl_Detection/5.jpg"
     image_path_test = "Mid_Term/Asl_Detection/3004.jpg"
     
@@ -86,10 +86,7 @@ def main():
                 
     train_dimensions = dimensions_train
     test_dimensions = dimensions_test
-    """
-    train_dimensions = get_image_dimensions(train_data_dir)
-    test_dimensions = get_image_dimensions(test_data_dir)
-    """
+    
 
 
     train_df = pd.DataFrame(train_dimensions, columns=['Width', 'Height'])
