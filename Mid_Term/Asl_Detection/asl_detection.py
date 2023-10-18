@@ -72,8 +72,8 @@ def main():
     #     return
 
     """Temporary"""
-    image_path_train = "C:/Users/vipul/Documents/MSU - MSDS/CMSE/Project mid term/ASL_Dataset/Train_split/K/5.jpg"
-    image_path_test = "C:/Users/vipul/Documents/MSU - MSDS/CMSE/Project mid term/ASL_Dataset/Test/F/3002.jpg"
+    image_path_train = "Mid_Term/Asl_Detection/5.jpg"
+    image_path_test = "Mid_Term/Asl_Detection/3004.jpg"
     
     dimensions_train = []
     with Image.open(image_path_train) as img:
