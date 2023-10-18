@@ -156,8 +156,8 @@ def main():
 
     # Load the trained model
     model_file = st.file_uploader("choose trained model")
-    model = load_model('./model.h5')
-    #model =  load_model(model_file)   
+    # model = load_model('./model.h5')
+    model =  load_model(model_file)   
 
     uploaded_file = st.file_uploader("Choose an image...")
 
