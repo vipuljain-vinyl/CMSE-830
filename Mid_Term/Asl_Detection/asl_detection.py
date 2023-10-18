@@ -33,7 +33,7 @@ def main():
             
     This is the Example of Multiclass classification problem.
             
-    This includes how to develop a robust test harness for estimating the performance of the model, exploring improvements for the model by changing the paramters of the model, saving and loading the model to make predicitions on new data.'''
+    This webapp includes loading the model to make predicitions on Hand signs.'''
     st.markdown(text)
 
     st.header("Data Description")
