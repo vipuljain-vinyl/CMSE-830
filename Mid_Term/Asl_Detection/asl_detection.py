@@ -200,7 +200,7 @@ def main():
         model = load_model(model_file)
     #model =  load_model(model_file)   
 
-    uploaded_file = st.file_uploader("Choose an image...")
+    uploaded_file = st.file_uploader("Choose an image for recognizing sign language...")
 
     if uploaded_file is not None:
         # Display the uploaded image
