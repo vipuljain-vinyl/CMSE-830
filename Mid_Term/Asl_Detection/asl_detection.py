@@ -71,8 +71,26 @@ def main():
     #     st.warning("Invalid dataset path. Please check the path and try again.")
     #     return
 
+    """Temporary"""
+    image_path_train = "C:/Users/vipul/Documents/MSU - MSDS/CMSE/Project mid term/ASL_Dataset/Train_split/K/5.jpg"
+    image_path_test = "C:/Users/vipul/Documents/MSU - MSDS/CMSE/Project mid term/ASL_Dataset/Test/F/3002.jpg"
+    
+    dimensions_train = []
+    with Image.open(image_path_train) as img:
+                    dimensions_train.append(img.size)
+
+    dimensions_test = []
+    with Image.open(image_path_test) as img:
+                    dimensions_test.append(img.size)
+
+                
+    train_dimensions = dimensions_train
+    test_dimensions = dimensions_test
+    """
     train_dimensions = get_image_dimensions(train_data_dir)
     test_dimensions = get_image_dimensions(test_data_dir)
+    """
+
 
     train_df = pd.DataFrame(train_dimensions, columns=['Width', 'Height'])
     test_df = pd.DataFrame(test_dimensions, columns=['Width', 'Height'])
