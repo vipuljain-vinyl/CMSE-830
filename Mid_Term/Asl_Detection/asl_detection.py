@@ -45,7 +45,7 @@ def main():
 
     st.markdown(text2)
 
-    image = Image.open('hand_sign.png')
+    image = Image.open('Mid_Term/Asl_Detection/hand_sign.png')
 
     st.image(image, caption='Hand signs')
 
