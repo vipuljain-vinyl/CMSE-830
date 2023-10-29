@@ -201,7 +201,7 @@ def main():
 
     if uploaded_file is not None:
         # Display the uploaded image
-        image_file = load_img(uploaded_file, target_size=(400,400))
+        image_file = load_img(uploaded_file, target_size=(40,40))
         st.image(image_file, caption="Uploaded Image.", use_column_width=True)
 
         image_file=img_to_array(image_file) 
