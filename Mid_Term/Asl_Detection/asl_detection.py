@@ -192,16 +192,16 @@ def main():
     
 
     # Load the trained model
-    model_file = st.file_uploader("choose trained model")
-    if model_file is not None:
-        model = load_model(model_file)
-    #model =  load_model(model_file)   
+    # model_file = st.file_uploader("choose trained model")
+    # if model_file is not None:
+    #     model = load_model(model_file)
+    model =  load_model('Mid_Term/Asl_Detection/model_pretrained.h5')   
 
     uploaded_file = st.file_uploader("Choose an image for recognizing sign language...")
 
     if uploaded_file is not None:
         # Display the uploaded image
-        image_file = load_img(uploaded_file, target_size=(200,200))
+        image_file = load_img(uploaded_file, target_size=(40,40))
         st.image(image_file, caption="Uploaded Image.", use_column_width=True)
 
         image_file=img_to_array(image_file) 
