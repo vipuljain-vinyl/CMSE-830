@@ -18,7 +18,7 @@ from statsmodels.tsa.api import SARIMAX
 st.set_page_config(page_title="Stock Price Prediction", layout="wide")
 st.title("Stock Price Prediction")
 
-stock_list_df= pd.read_csv('nasdaq_screener.csv')
+stock_list_df= pd.read_csv('Project_Final/nasdaq_screener.csv')
 
 # Use a text_input to get the keywords to filter the dataframe
 searchterm = st.selectbox("Search stock by symbol or company name", options=list(stock_list_df[['Symbol','Name']].apply(tuple,axis=1)), index = None)
