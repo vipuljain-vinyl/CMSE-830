@@ -8,7 +8,7 @@ def bio_page():
 
     
 
-    st.image("./vipul_pic.jpg", caption="Vipul Jain", use_column_width=True) # 'Project_Final/image.jpg'
+    st.image("Project_Final_v2/Files/vipul_pic.jpg", caption="Vipul Jain", use_column_width=True) # 'Project_Final_v2/image.jpg'
 
     st.markdown(
         """
