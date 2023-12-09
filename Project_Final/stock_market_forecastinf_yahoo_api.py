@@ -16,9 +16,9 @@ from statsmodels.tsa.api import SARIMAX
 
 # Page setup
 st.set_page_config(page_title="Stock Price Prediction", layout="wide")
-st.title("Stock Price Prediction")
+st.title("Stock Price Forecasting")
 
-stock_list_df= pd.read_csv('nasdaq_screener.csv')  # 'Project_Final/nasdaq_screener.csv'
+stock_list_df= pd.read_csv('Project_Final/nasdaq_screener.csv')
 
 # Use a text_input to get the keywords to filter the dataframe
 searchterm = st.selectbox("Search stock by symbol or company name", options=list(stock_list_df[['Symbol','Name']].apply(tuple,axis=1)), index = None)
@@ -74,7 +74,7 @@ if stock_ticker:
         st.title("Data Summary")
         st.dataframe(stock_data.describe())
 
-        st.title("Data Summary")
+        st.title("Stock Day's Performance")
         st.write(stock_data.reset_index()['Date'].min(),stock_data.reset_index()['Date'].max())
         selected_date = st.date_input("Select Date",value = None, min_value=stock_data.reset_index()['Date'].min(), max_value=stock_data.reset_index()['Date'].max())
         selected_row = stock_data.reset_index()[stock_data.reset_index()['Date'] == str(selected_date)]
