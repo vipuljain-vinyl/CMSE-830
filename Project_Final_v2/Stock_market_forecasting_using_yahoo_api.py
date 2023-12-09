@@ -88,7 +88,7 @@ with tab_exp:
     
     st.title("Stock Price Forecasting")   #6/12 - 2:17 **
 
-    stock_list_df= pd.read_csv('nasdaq_screener.csv')  # 'Project_Final/nasdaq_screener.csv'
+    stock_list_df= pd.read_csv('Project_Final/nasdaq_screener.csv')  # 'Project_Final/nasdaq_screener.csv'
 
     # Use a text_input to get the keywords to filter the dataframe
     searchterm = st.selectbox("Search stock by symbol or company name", options=list(stock_list_df[['Symbol','Name']].apply(tuple,axis=1)), index = None)
